@@ -1,4 +1,3 @@
-
 public class PrimeNumber {
 	public static void main(String[] args) {
 		primeNumbers(1, 100);
@@ -9,10 +8,15 @@ public class PrimeNumber {
 
 	}
 
+	/*
+	 * @description - isPrime method checks whether the given number is prime or not
+	 * 
+	 * @param - number
+	 */
 	public static boolean isPrime(int number) {
 		int count = 0;
 		if (number >= 2) {
-			for (int i = 2; i <= number; i++) {
+			for (int i = 2; i <= number / 2 && count <= 1; i++) {
 				if ((number % i) == 0) {
 					count++;
 				}
@@ -26,6 +30,11 @@ public class PrimeNumber {
 		}
 	}
 
+	/*
+	 * @description - primeNumbers method generates number from start to end value
+	 * 
+	 * @param - start, end
+	 */
 	public static void primeNumbers(int start, int end) {
 		System.out.println("Prime Numbers Are : ");
 		for (int i = start; i <= end; i++) {
@@ -36,6 +45,11 @@ public class PrimeNumber {
 		System.out.println();
 	}
 
+	/*
+	 * @description - checkNumberType method checks what kind of number it is
+	 * 
+	 * @param - number
+	 */
 	public static void checkNumberType(int number) {
 		System.out.println("\n\nNumber is : ");
 		char[] temp = Integer.toString(number).toCharArray();
@@ -52,6 +66,11 @@ public class PrimeNumber {
 
 	}
 
+	/*
+	 * @description - isArmstrongNumber checks whether the given number is armstrong number or not
+	 * 
+	 * @param - temp
+	 */
 	public static boolean isArmstrongNumber(char[] temp) {
 		int sum = 0;
 		for (int i = 0; i < temp.length; i++) {
@@ -62,7 +81,11 @@ public class PrimeNumber {
 		}
 		return false;
 	}
-
+	/*
+	 * @description - isPerfectNumber checks whether the given number is perfect number or not 
+	 * 
+	 * @param - number
+	 */
 	public static boolean isPerfectNumber(int number) {
 		int sum = 0;
 		for (int i = 1; i < number; i++) {
@@ -77,6 +100,11 @@ public class PrimeNumber {
 		return false;
 	}
 
+	/*
+	 * @description - isPalindrome checks whether the given number is palindrome or not
+	 * 
+	 * @param - temp
+	 */
 	public static boolean isPalindrome(char[] temp) {
 		String originalString = new String(temp);
 		for (int i = 0; i < temp.length / 2; i++) {

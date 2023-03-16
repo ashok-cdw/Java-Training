@@ -1,3 +1,11 @@
+/*
+ * getObject Method returns the instance for Singleton class
+ * Only one instance is created here
+ * No more instances will be created
+ * Every thread will have access to the same Instance
+ *
+ */
+
 class Singleton {
 	private static Singleton singletonObject;
 

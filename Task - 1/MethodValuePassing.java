@@ -1,3 +1,8 @@
+/*
+ * By default, primitive data types are passed by call by value method
+ * Non-Primitive data types are passed as call by reference
+ * By default arrays are passed by call by reference method
+ */
 public class MethodValuePassing {
 	public static void main(String[] args) {
 

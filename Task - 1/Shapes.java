@@ -1,3 +1,9 @@
+/*
+ * Interface CalcArea and CalcVolume are created and are implemented by Circle, Square, Triangle Classes
+ * Each class will override the method present in interface.
+ * Program calculates area and volume of circle, square, triangle
+ */
+
 interface CalcArea {
 	public double calcArea();
 }
@@ -74,14 +80,14 @@ public class Shapes {
 		System.out.println("Volume : " + Math.round(circle.calcVolume()) + " cubic units");
 
 		System.out.println("---------------------------------");
-		
+
 		Square square = new Square(12);
 		System.out.println("Area : " + Math.round(square.calcArea()) + " sq. cm");
 		System.out.println("Volume : " + Math.round(square.calcVolume()) + " cubic units");
 
 		System.out.println("---------------------------------");
-		
-		Triangle triangle = new Triangle(10,20,10);
+
+		Triangle triangle = new Triangle(10, 20, 10);
 		System.out.println("Area : " + Math.round(triangle.calcArea()) + " sq. cm");
 	}
 }

@@ -1,3 +1,6 @@
+/*
+ * Printing the default values of primitive data types
+ */
 public class DefaultValues {
 	static byte byteVariable;
 	static short shortVariable;

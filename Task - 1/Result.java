@@ -25,8 +25,10 @@ class Result extends Exam {
 	}
 
 	double totalmarks;
-
-	double totalmarks() {
+	/*
+	 * @description - totalMarks method calculates the total of the subject marks
+	 */
+	public double totalMarks() {
 		totalmarks += mark1 + mark2 + mark3;
 		return totalmarks;
 	}
@@ -35,6 +37,6 @@ class Result extends Exam {
 		Result resultObj = new Result("Ashok N", 2033, 95, 96, 97);
 		System.out.println("Name : " + resultObj.name);
 		System.out.println("Roll No : " + resultObj.rollno);
-		System.out.println("Total Marks	: " + resultObj.totalmarks());
+		System.out.println("Total Marks	: " + resultObj.totalMarks());
 	}
 }

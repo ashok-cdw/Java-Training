@@ -1,6 +1,13 @@
+/*
+ *	Interface called Stack is created and Implemented by FixedStack and DynamicStack Class
+ *	Implemented Class overrides the methods
+ *
+ *	Fixed Stack has a array size of fixed size
+ *	Dynamic Stack has a array size of fixed size, after reaching the limit it will double the size
+ */
+
 interface Stack {
 	public void push(int number);
-
 	public int pop();
 }
 
