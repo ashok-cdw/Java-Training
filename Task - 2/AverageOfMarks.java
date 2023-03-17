@@ -16,6 +16,7 @@ public class AverageOfMarks {
 				marksOfStudents[i] = Integer.parseInt(scan.nextLine());
 			} catch (NumberFormatException e) {
 				System.out.println("Wrong Input");
+				i--;
 			}
 		}
 
