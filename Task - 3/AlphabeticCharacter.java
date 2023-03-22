@@ -2,23 +2,21 @@
  * Program runs through the string and checks for any non alphabetic character
  * If present, Custom Exception will be thrown
  */
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 public class AlphabeticCharacter {
-	char[] msg = "Ashok$Employee$Of$CDW$123^&".toLowerCase().toCharArray();
-
 	public AlphabeticCharacter() {
 		ExecutorService es = Executors.newFixedThreadPool(1);
+		Scanner scan = new Scanner(System.in);
 		es.execute(() -> {
-			for (int i = 0; i < msg.length; i++) {
+			while(true) {
 				try {
-					AlphabetCheck.isAlpha(msg[i]);
-					try {
+					System.out.println("Enter an alphabet...");
+					char msg = scan.next().charAt(0);
+					AlphabetCheck.isAlpha(msg);
 						Thread.sleep(300);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				} catch (NonAlphabeticException e) {
+				} catch (NonAlphabeticException | InterruptedException e) {
 					System.err.println(e.getMessage());
 				}
 			}
@@ -43,11 +41,11 @@ class NonAlphabeticException extends Exception{
 class AlphabetCheck {
 	static void isAlpha(char letter) throws NonAlphabeticException {
 		
-		if(Character.isAlphabetic(letter)) {
-			System.out.println(letter);
+		if(!Character.isAlphabetic(letter)) {
+			throw new NonAlphabeticException(letter + " is not an alphabet");
 		}
 		else {
-			throw new NonAlphabeticException(letter + " is not an alphabet");
+			System.out.println(letter + " is an alphabet");
 		}
 	}
 }
