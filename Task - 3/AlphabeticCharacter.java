@@ -15,8 +15,7 @@ public class AlphabeticCharacter {
 					System.out.println("Enter an alphabet...");
 					char msg = scan.next().charAt(0);
 					AlphabetCheck.isAlpha(msg);
-						Thread.sleep(300);
-				} catch (NonAlphabeticException | InterruptedException e) {
+				} catch (NonAlphabeticException e) {
 					System.err.println(e.getMessage());
 				}
 			}

@@ -17,28 +17,20 @@ public class DigitalClock {
 		ExecutorService es = Executors.newFixedThreadPool(1);
 		Scanner scan = new Scanner(System.in);
 		es.execute(() -> {
+			long startTime = System.currentTimeMillis();
 			while (true) {
 				try {
-					// DigitalClock.clock(date.getHours() + ":"+date.getMinutes() +
-					// ":"+date.getSeconds());
 					DigitalClock.clock(DateFormat.getTimeInstance().format(new Date()));
 					Thread.sleep(1000);
 
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}
-				if (i < 3) {
-					i++;
-					continue;
-				} else {
-					System.out.println("Do you want to continue..? Y for Yes | AnyKey for No");
-					userOption = scan.nextLine().charAt(0);
-					if (userOption == 'Y' || userOption == 'y') {
-						return;
-					} else {
-						i = 1;
-					}
+				if (!(System.currentTimeMillis() - startTime < 3600 * 1000)) {
+					System.out.println("Exited...");
+					return;
 				}
+
 			}
 		});
 		es.shutdown();
