@@ -10,7 +10,6 @@
 import java.util.HashMap;
 
 public class FlyWeightPattern {
-
 	public static void main(String[] args) {
 		Paper.getPaper(new White());
 		Paper.getPaper(new White());
@@ -29,7 +28,6 @@ class Paper {
 	}
 
 	public static Paper getPaper(PaperColor color) {
-
 		if (map.get(color.getColor()) != null) {
 			System.out.println("Old Paper Object Returned With Color : " + color.getColor());
 			return map.get(color.getColor());

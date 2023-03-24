@@ -11,23 +11,23 @@ public class BridgePattern {
 	}
 }
 
-
-interface Color{
+interface Color {
 	public String fill();
 }
 
-class Blue implements Color{
+class Blue implements Color {
 	public String fill() {
 		return "Blue Color....";
 	}
 }
 
-abstract class Shape{
+abstract class Shape {
 	Color color;
+
 	public abstract void draw();
 }
 
-class Square extends Shape{
+class Square extends Shape {
 	public Square(Color color) {
 		this.color = color;
 	}
@@ -36,10 +36,10 @@ class Square extends Shape{
 	public void draw() {
 		System.out.println("Square Shape Drawn : " + color.fill());
 	}
-	
+
 }
 
-class Circle extends Shape{
+class Circle extends Shape {
 	public Circle(Color color) {
 		this.color = color;
 	}
@@ -48,5 +48,5 @@ class Circle extends Shape{
 	public void draw() {
 		System.out.println("Circle Shape Drawn : " + color.fill());
 	}
-	
+
 }

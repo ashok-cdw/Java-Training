@@ -4,7 +4,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-class PersonalDetails implements Serializable{
+class PersonalDetails implements Serializable {
 	String name;
 	int age;
 	String city;
@@ -22,16 +22,18 @@ class PersonalDetails implements Serializable{
 	
 }
 
-public class MomentoPattern{
+public class MomentoPattern {
 
 	public static void main(String[] args) throws Exception {
-		PersonalDetails ashok =  new PersonalDetails("Ashok", 21, "Erode", "KEC");
-		ObjectOutputStream OutputStream = new ObjectOutputStream(new FileOutputStream("myuserdata.dat"));
-		OutputStream.writeObject(ashok);
+		PersonalDetails ashokPersonalDetails =  new PersonalDetails("Ashok", 20, "Erode", "KEC");
+		ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("myuserdata.dat"));
+		outputStream.writeObject(ashokPersonalDetails);
 		
-		ObjectInputStream InputStream = new ObjectInputStream(new FileInputStream("myuserdata.dat"));
-		PersonalDetails temp = (PersonalDetails) InputStream.readObject();
+		ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("myuserdata.dat"));
+		PersonalDetails copiedPersonalDetails = (PersonalDetails) inputStream.readObject();
 		
-		System.out.println(temp);
+		System.out.println(copiedPersonalDetails);
+		outputStream.close();
+		inputStream.close();
 	}
 }
