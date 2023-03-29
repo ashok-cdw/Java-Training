@@ -15,7 +15,7 @@ public class LorryTravels {
 		String date = "27-03-2023";
 		double drivenTime = 0;
 
-		LocalDateTime dateTime = null;
+		LocalDateTime localDateTime = null;
 		try (Scanner scan = new Scanner(System.in)) {
 			System.out.println("Enter Speed : ");
 			speed = scan.nextDouble();
@@ -23,38 +23,38 @@ public class LorryTravels {
 			distance = scan.nextDouble();
 			System.out.println("Enter Date (dd-mm-yyyy) : ");
 			date = scan.next();
-
-			dateTime = LocalDateTime.parse(date + " 00:00", dateTimeFormatter);
+			localDateTime = LocalDateTime.parse(date + " 00:00", dateTimeFormatter);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
+			date = "27-03-2023";
+			System.out.println("Fallback Date Setted : " + date);
+			localDateTime = LocalDateTime.parse(date + " 00:00", dateTimeFormatter);
 		}
 		double reachTime = distance / speed;
 		System.out.println("Time Taken : " + reachTime + " hr");
 
-		drivenTime += 24 - dateTime.getHour() > 8 ? 8 : (24 - dateTime.getHour());
-
+		drivenTime += 24 - localDateTime.getHour() > 8 ? 8 : (24 - localDateTime.getHour());
 		while (drivenTime < reachTime) {
-
-			if (!isLeaveDay(dateTime)) {
+			if (!isLeaveDay(localDateTime)) {
 				drivenTime = drivenTime + 8;
 			}
-			dateTime = dateTime.plusDays(1);
+			localDateTime = localDateTime.plusDays(1);
 		}
 
-		System.out.println("Will Reach On : " + dateTime.getDayOfMonth() + "-" + dateTime.getMonth().getValue() + "-"
-				+ dateTime.getYear());
+		System.out.println("Will Reach On : " + localDateTime.getDayOfMonth() + "-"
+				+ localDateTime.getMonth().getValue() + "-" + localDateTime.getYear());
 	}
 
-	public static boolean isLeaveDay(LocalDateTime date) {
-		if (date.getMonth().getValue() == 1 && date.getDayOfMonth() == 1) {
+	public static boolean isLeaveDay(LocalDateTime localDateTime) {
+		if (localDateTime.getMonth().getValue() == 1 && localDateTime.getDayOfMonth() == 1) {
 			return true;
-		} else if (date.getMonth().getValue() == 1 && date.getDayOfMonth() == 26) {
+		} else if (localDateTime.getMonth().getValue() == 1 && localDateTime.getDayOfMonth() == 26) {
 			return true;
-		} else if (date.getMonth().getValue() == 8 && date.getDayOfMonth() == 15) {
+		} else if (localDateTime.getMonth().getValue() == 8 && localDateTime.getDayOfMonth() == 15) {
 			return true;
-		} else if (date.getDayOfWeek().getValue() == 7) {
+		} else if (localDateTime.getDayOfWeek().getValue() == 7) {
 			return true;
-		} else if (date.getDayOfWeek().getValue() == 6 && date.getDayOfMonth() >= 8) {
+		} else if (localDateTime.getDayOfWeek().getValue() == 6 && localDateTime.getDayOfMonth() >= 8) {
 			return true;
 		}
 		return false;
